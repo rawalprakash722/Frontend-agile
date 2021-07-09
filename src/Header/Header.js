@@ -20,7 +20,7 @@ class Header extends Component{
     <Nav className="mr-auto">
       <Nav.Link href="/show/product">Products</Nav.Link>
       <NavDropdown title="Login/Signup" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="/user/login">Login</NavDropdown.Item>
+        <NavDropdown.Item href="/users/login">Login</NavDropdown.Item>
         <NavDropdown.Item href="/users/signup">Register</NavDropdown.Item>
 
         

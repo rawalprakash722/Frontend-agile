@@ -2,7 +2,7 @@ import { Component } from "react";
 
 import {Route} from 'react-router-dom'
 import Register from './Register'
-
+import Login from "./Login";
 class Container extends Component{
     render(){
      
@@ -11,6 +11,7 @@ class Container extends Component{
                 <div className=''>
                     <div className=''>
                   <Route path="/users/signup" component={Register} />
+                  <Route path="/users/login" component={Login} />
                 
 
                    </div>
