@@ -18,6 +18,9 @@ class Login extends Component{
         axios.post("http://localhost:90/users/login", this.state)
         .then((response)=>{
             console.log(response);
+            localStorage.setItem('role',response.data.role)
+            localStorage.setItem('token',response.data.token)
+            localStorage.setItem('fullname',response.data.fullname)
             alert("Login Success")
             this.setState({
                 chkLogin:true

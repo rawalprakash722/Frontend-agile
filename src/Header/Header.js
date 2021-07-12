@@ -9,9 +9,30 @@ class Header extends Component{
       
       
       {
+        if(localStorage.getItem('token') && localStorage.getItem('role')=="admin"){
+          var menu=
+          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Navbar.Brand href="/">Mobile Buy</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/products/all">Products</Nav.Link>
+              <Nav.Link href="/insert/product">Add Products</Nav.Link>
+              <Nav.Link href="/show/users">Users</Nav.Link>
+              <Nav.Link href="/show/contact">Conatct us</Nav.Link>
+            </Nav>
+            <Nav>
+              <Nav.Link href="/users/logout">Logout</Nav.Link>
+              <Nav.Link eventKey={2} href="/user/single/:id">{localStorage.getItem('fullname')}
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+         
+        }
       
    
-
+        else{
         var menu=
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Navbar.Brand href="/">Food</Navbar.Brand>
@@ -31,6 +52,7 @@ class Header extends Component{
     
   </Navbar.Collapse>
 </Navbar>
+      }
       }
     
         return(
