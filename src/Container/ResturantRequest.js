@@ -12,7 +12,9 @@ class RestaurantRequest extends Component{
     sendUserData = ( ) =>{
         const data={
             fullname:this.state.fullname,
-           
+            email:this.state.email,
+            password:"123456789",
+            role:'restaurant'
         }
         axios.post("http://localhost:90/users/signup",data).then(alert("Register Successfull")).catch(error=>{console.log(error);})
     }
