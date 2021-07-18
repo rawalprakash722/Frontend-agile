@@ -18,6 +18,27 @@ class Header extends Component{
             <Nav className="mr-auto">
               <Nav.Link href="/products/all">Products</Nav.Link>
               <Nav.Link href="/insert/product">Add Products</Nav.Link>
+              <Nav.Link href="/user/show">Users</Nav.Link>
+              <Nav.Link href="/show/contact">Conatct us</Nav.Link>
+            </Nav>
+            <Nav>
+              <Nav.Link href="/users/logout">Logout</Nav.Link>
+              <Nav.Link eventKey={2} href="/user/single/:id">{localStorage.getItem('fullname')}
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+         
+        }
+        else if(localStorage.getItem('token') && localStorage.getItem('role')=="customer"){
+          var menu=
+          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Navbar.Brand href="/">Food </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/restaurant/register">Request</Nav.Link>
+              <Nav.Link href="/insert/product">Add Products</Nav.Link>
               <Nav.Link href="/show/users">Users</Nav.Link>
               <Nav.Link href="/show/contact">Conatct us</Nav.Link>
             </Nav>
@@ -39,7 +60,7 @@ class Header extends Component{
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
-      <Nav.Link href="/show/product">Products</Nav.Link>
+      <Nav.Link href="/restaurant/register">Register Restaurant</Nav.Link>
       <NavDropdown title="Login/Signup" id="collasible-nav-dropdown">
         <NavDropdown.Item href="/users/login">Login</NavDropdown.Item>
         <NavDropdown.Item href="/users/signup">Register</NavDropdown.Item>
