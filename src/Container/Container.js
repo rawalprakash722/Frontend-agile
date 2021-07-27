@@ -6,6 +6,9 @@ import Login from "./Login";
 import Logout from "./Logout";
 import RestaurantRequest from "./RestaurantRequest";
 import ViewRestaurantRequest from './ViewRestaurantRequest';
+import ListFoods from './FoodCategory';
+import AddRestuarant from './Restaurant';
+import AddFood from "./Foods";
 class Container extends Component{
     render(){
      
@@ -18,6 +21,9 @@ class Container extends Component{
                   <Route path="/users/logout" component={Logout} />
                   <Route path='/restaurant/register' component={RestaurantRequest} />
                   <Route path='/user/show' component={ViewRestaurantRequest} />
+                  <Route path='/food/cat' component={ListFoods} />
+                  <Route path='/restaurant/add' component={AddRestuarant} />
+                  <Route path='/add/food' component={AddFood} />
 
                    </div>
                    
