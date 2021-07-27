@@ -60,7 +60,7 @@ class Footer extends Component{
                   </li>
                   <li>
                     <p>
-                      <i className="fas fa-envelope mr-3"></i> food@gmail.com</p>
+                      <i className="fas fa-envelope mr-3"></i> foodhunt@gmail.com</p>
                   </li>
                   <li>
                     <p>
@@ -102,8 +102,8 @@ class Footer extends Component{
         
         
         
-          <div className="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://food.com/"> Food</a>
+          <div className="footer-copyright text-center py-3">© 2021 Copyright:
+            <a href="https://foodhunt.com/"> Food Hunt</a>
           </div>
         
         
