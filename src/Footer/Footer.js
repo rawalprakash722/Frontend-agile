@@ -102,7 +102,7 @@ class Footer extends Component{
         
         
         
-          <div className="footer-copyright text-center py-3">© 2021 Copyright:
+          <div className="footer-copyright text-center py-3">© 2021 Copyright @ 
             <a href="https://foodhunt.com/"> Food Hunt</a>
           </div>
         
