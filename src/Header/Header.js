@@ -12,7 +12,7 @@ class Header extends Component{
         if(localStorage.getItem('token') && localStorage.getItem('role')=="admin"){
           var menu=
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">Food </Navbar.Brand>
+          <Navbar.Brand href="/">Food Hunt</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
@@ -34,7 +34,7 @@ class Header extends Component{
         else if(localStorage.getItem('token') && localStorage.getItem('role')=="customer"){
           var menu=
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">Food </Navbar.Brand>
+          <Navbar.Brand href="/">Food Hunt</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
