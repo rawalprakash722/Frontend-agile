@@ -135,12 +135,12 @@ export default class ListFoods extends Component {
             <br/>
             <div className="row">
               <div className="col-md-6">
-                <h1>Add Item Category</h1>
+                <h1>Add Food Category</h1>
               </div>
               <div className="col-md-6">
                   <Button color='primary' style={{float:"right"}} onClick={this.toggle1}>
                     <MdAdd style={{fontSize:"30px", color:"white"}} />
-                    Add Category
+                    Add Food Category
                   </Button>
               </div>
             </div>
@@ -149,7 +149,7 @@ export default class ListFoods extends Component {
               <tr>
                 <th>Category Name</th>
                 <th>Category Image</th>
-                <th>Edit</th>
+                <th>Update</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -162,7 +162,7 @@ export default class ListFoods extends Component {
                     <img alt="catIcon" src={`http://localhost:90/pictures/${cat.catImg}`} style={{height: "50px",width:"50px"}}/>
                   </td>
                   <td>
-                    <a className="btn btn-success" onClick={() => this.handleEdit(cat._id)}>Edit</a>
+                    <a className="btn btn-primary" onClick={() => this.handleEdit(cat._id)}>Update</a>
                   </td>
                   <td>
                     <a onClick={() => this.deleteCat(cat._id)} className="btn btn-danger">Delete</a>
@@ -187,12 +187,12 @@ export default class ListFoods extends Component {
                   </FormGroup>
                 </ModalBody>
                 <ModalFooter>
-                    <button className="btn btn-success btn-block" id="btnbag" onClick={this.addCat}>Add Category</button>
+                    <button className="btn btn-danger btn-block" id="btnbag" onClick={this.addCat}>Add Category</button>
                 </ModalFooter>
               </Modal>
     
               <Modal isOpen={this.state.modal}>
-                <ModalHeader toggle={this.toggle}><legend>Edit Category</legend></ModalHeader>
+                <ModalHeader toggle={this.toggle}><legend>Update Category</legend></ModalHeader>
                 <ModalBody>
                     <div className="form-group">
                       <label style={{color:'DarkSlateGray', fontSize:18}}> Category Name</label>
@@ -204,7 +204,7 @@ export default class ListFoods extends Component {
                       <Input type='file' name='foodimage' onChange={this.handleFileSelect}/>
                       
                     </div>
-                    <Button className="btn btn-success btn-block" 
+                    <Button className="btn btn-primary btn-block" 
                       onClick={() => this.updateCat(this.state.category._id)}>Update</Button>   
                 </ModalBody>
                 <ModalFooter></ModalFooter>

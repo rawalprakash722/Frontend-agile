@@ -176,7 +176,7 @@ export default class ListFoods extends Component {
                     <img alt="foodPic" src={`http://localhost:90/pictures/${pop.foodimage}`} style={{height: "50px",width:"50px"}}/>
                   </td>
                   <td>
-                    <a className="btn btn-success" onClick={() => this.handleEdit(pop._id)}>Edit</a>
+                    <a className="btn btn-primary" onClick={() => this.handleEdit(pop._id)}>Update</a>
                   </td>
                   <td>
                     <a onClick={() => this.deletefood(pop._id)} className="btn btn-danger" href="">Delete</a>

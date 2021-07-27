@@ -124,17 +124,17 @@ export default class AddFood extends Component {
             <div className="container">
                 <Row>
                     <Col md={6} className="text-left mt-4">
-                        <h2 style={{color:'Crimson'}}>Add Item</h2>
+                        <h2>Add Food</h2>
                     </Col>
                     <Col md={6} className="text-right mt-4">
                         <Button color='primary' onClick={this.toggle}>
                             <MdAdd style={{fontSize:"30px", color:"white"}} />
-                            Add Category
+                            Add Food Category
                         </Button>
                     </Col>
                 </Row>
                 <hr/>
-                <form style={{backgroundColor:'#EAF2F8'}} className="col-10">
+                <form className="col-10">
                     <Row>
                         <Col md={4}>
                             <FormGroup>
@@ -203,7 +203,7 @@ export default class AddFood extends Component {
                             <img alt="Img Preview" style={{width:200}} src={this.state.imgPreview}/><hr/>
                          </Col>
                     </Row>
-                    <Button type="submit" color='success' onClick={this.addFood} block>Add Food</Button>
+                    <Button type="submit" color='danger' style={{width:200}} onClick={this.addFood} block>Add Food</Button>
                 <br/>
                 </form>
               <ListFoods />

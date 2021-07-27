@@ -65,10 +65,10 @@ export default class AddRestuarant extends Component {
         <>
      
         <div className="container">
-          <h2 style={{color:'#34495E'}}>Add Resturant</h2><hr/>
+          <h2>Add Resturant</h2><hr/>
           <div className="row">
-            <div className="col-md-8">
-              <form style={{backgroundColor:'#EAF2F8'}} className="p-3">
+            <div className="col-md-6">
+              <form className="p-3">
                 <FormGroup>
                   <Input type='text' id="resturantname" name='resturant_name' value={this.state.resturant_name}
                     onChange={this.handleChange} placeholder="Enter restaurant name" required/>
@@ -81,7 +81,7 @@ export default class AddRestuarant extends Component {
                     <Label className="btn btn-outline-info float-left" htmlFor="filePicker">Upload image for restaurant</Label>
                     <Input id="filePicker" style={{visibility:"hidden"}} type='file' name='res_image' onChange={this.handleFileSelect}/>
                   </FormGroup>
-                  <Button type="submit" color='success' onClick={this.addRest} block>Add Resturant</Button>
+                  <Button type="submit" color='danger' style={{width:200},{marginTop:2}} onClick={this.addRest} block>Add Resturant</Button>
               </form>
             </div>
             <div className="col-md-4 flex">
