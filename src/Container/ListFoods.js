@@ -152,8 +152,10 @@ export default class ListFoods extends Component {
     render() 
     {
         return (
+          
             <Table hover>
             <thead>
+            <h1>Foods</h1>
               <tr>
                 <th>Restaurant Name</th>
                 <th>Category</th>

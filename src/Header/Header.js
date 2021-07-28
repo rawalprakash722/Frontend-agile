@@ -12,7 +12,7 @@ class Header extends Component{
         if(localStorage.getItem('token') && localStorage.getItem('role')=="admin"){
           var menu=
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">Food Hunt</Navbar.Brand>
+          <Navbar.Brand href="/">Food </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
@@ -34,14 +34,15 @@ class Header extends Component{
         else if(localStorage.getItem('token') && localStorage.getItem('role')=="customer"){
           var menu=
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">Food Hunt</Navbar.Brand>
+          <Navbar.Brand href="/">Food </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link href="/restaurant/register">Request</Nav.Link>
-              <Nav.Link href="/insert/product">Add Products</Nav.Link>
-              <Nav.Link href="/show/users">Users</Nav.Link>
-              <Nav.Link href="/show/contact">Conatct us</Nav.Link>
+              <Nav.Link href="/category">Category</Nav.Link>
+              <Nav.Link href="/foodsr">foods</Nav.Link>
+              <Nav.Link href="/resturant">Restaurants</Nav.Link>
+              <Nav.Link href="/popular">popular</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href="/users/logout">Logout</Nav.Link>
@@ -57,7 +58,7 @@ class Header extends Component{
         else{
         var menu=
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Navbar.Brand href="/">Food Hunt</Navbar.Brand>
+  <Navbar.Brand href="/">Food</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">

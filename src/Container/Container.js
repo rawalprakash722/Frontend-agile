@@ -9,6 +9,11 @@ import ViewRestaurantRequest from './ViewRestaurantRequest';
 import ListFoods from './FoodCategory';
 import AddRestuarant from './Restaurant';
 import AddFood from "./Foods";
+import Category from "./User_dahboard/Category";
+import Popular from "./User_dahboard/popular";
+import Resturantdetails from "./User_dahboard/Foods";
+import Restaurant from "./User_dahboard/Restaurant";
+import Home from "./User_dahboard/Home";
 class Container extends Component{
     render(){
      
@@ -24,7 +29,11 @@ class Container extends Component{
                   <Route path='/food/cat' component={ListFoods} />
                   <Route path='/restaurant/add' component={AddRestuarant} />
                   <Route path='/add/food' component={AddFood} />
-
+                  <Route path='/category' component={Category}/>
+                  <Route path='/popular' component={Popular}/>
+                  <Route path='/viewRes/:id' component={Resturantdetails}/>
+                  <Route path='/resturant' component={Restaurant}/>
+                  <Route path="/home" component={Home} />
                    </div>
                    
                    </div>

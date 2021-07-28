@@ -21,21 +21,20 @@ class RestaurantRequest extends Component{
     render(){
         return(
             <div id="reg">
-                <h1>Restaurant Register</h1>
+           <h1>Restaurant Register</h1>
            
-                <form>
-                    <div className="form-group"><input type="Text" className="form-control" placeholder="Name" value={this.state.fullname} onChange={(event)=>{this.setState({fullname:event.target.value})}}/>
-                    </div>
-
-                    <br></br>
-
-                    <div className="form-group"><input type="Text" className="form-control" placeholder="Email" value={this.state.email} onChange={(event)=>{this.setState({email:event.target.value})}}/>
-                    </div>
-
-                    <br></br>
-                    
-                    <div class="form-group"><input type="submit" onClick={this.sendUserData} className="btn btn-primary" /></div>
-                </form>
+           <form>
+           <div className="form-group"><input type="Text" className="form-control" placeholder="Name" value={this.state.fullname} onChange={(event)=>{this.setState({fullname:event.target.value})}}/>
+           </div>
+           <div className="form-group"><input type="Text" className="form-control" placeholder="Email" value={this.state.email} onChange={(event)=>{this.setState({email:event.target.value})}}/>
+           </div>
+          
+          
+   
+           
+           
+           <div class="form-group"><input type="submit" onClick={this.sendUserData} className="btn btn-primary" /></div>
+            </form>
             </div>
             
         )

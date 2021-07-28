@@ -195,7 +195,7 @@ export default class AddFood extends Component {
                     <Row>
                         <Col md={3}>
                             <FormGroup style={{display: "ruby"}}>
-                                <Label className="btn btn-outline-info float-left" htmlFor="filePicker">Upload image for food</Label>
+                                <Label className="btn btn-primary float-left" htmlFor="filePicker">Upload image for food</Label>
                                 <Input id="filePicker" style={{visibility:"hidden"}} type='file' name='food_image' onChange={this.handleFileSelect}/>
                             </FormGroup>
                         </Col>
@@ -203,7 +203,7 @@ export default class AddFood extends Component {
                             <img alt="Img Preview" style={{width:200}} src={this.state.imgPreview}/><hr/>
                          </Col>
                     </Row>
-                    <Button type="submit" color='danger' style={{width:200}} onClick={this.addFood} block>Add Food</Button>
+                    <Button type="submit" color='danger' style={{width:500}} onClick={this.addFood} block>Add Food</Button>
                 <br/>
                 </form>
               <ListFoods />
