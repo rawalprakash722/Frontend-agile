@@ -41,6 +41,7 @@ class Header extends Component{
               <Nav.Link href="/restaurant/register">Request</Nav.Link>
               <Nav.Link href="/category">Category</Nav.Link>
               <Nav.Link href="/foodsr">foods</Nav.Link>
+              <Nav.Link href="/view/carts">Cart</Nav.Link>
               <Nav.Link href="/resturant">Restaurants</Nav.Link>
               <Nav.Link href="/popular">popular</Nav.Link>
             </Nav>
