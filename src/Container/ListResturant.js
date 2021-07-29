@@ -113,7 +113,7 @@ export default class ListFoods extends Component {
                 <th>Resturant Name</th>
                 <th>Resturant Address</th>
                 <th>Resturant Image</th>
-                <th>Edit</th>
+                <th>Update</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -124,8 +124,8 @@ export default class ListFoods extends Component {
                     <td>{pop.resturant_name}</td>
                     <td>{pop.resturant_address}</td>
                           <td><img alt="img" src={`http://localhost:90/pictures/${pop.res_image}`} style={{height: "50px",width:"50px"}}/></td>
-                    <td><a className="btn btn-success" onClick={() => this.handleEdit(pop._id)}>
-                                        Edit</a></td>
+                    <td><a className="btn btn-primary" onClick={() => this.handleEdit(pop._id)}>
+                                        Update</a></td>
                     <td><a onClick={() => this.deleteresturant(pop._id)} className="btn btn-danger" href="">Delete</a></td>
                   </tr>
                   )
