@@ -19,7 +19,7 @@ class Footer extends Component{
                 
                 <h5 className="font-weight-bold text-uppercase mb-4">Food hunt</h5>
                 <p>Welcome to Food hunt</p>
-                <p>You can buy food items at affordable price.</p>
+                <p>You can buy food items at affordable price with home delivery.</p>
         
               </div>  
          
@@ -60,7 +60,7 @@ class Footer extends Component{
                   </li>
                   <li>
                     <p>
-                      <i className="fas fa-envelope mr-3"></i> food@gmail.com</p>
+                      <i className="fas fa-envelope mr-3"></i> foodhunt@gmail.com</p>
                   </li>
                   <li>
                     <p>
@@ -80,7 +80,7 @@ class Footer extends Component{
               <div className="col-md-2 col-lg-2 text-center mx-auto my-4">
         
         
-                <h5 className="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+                <h5 className="font-weight-bold text-uppercase mb-4">Follow Us in our diffrent platform</h5>
         
         
                 <a type="button" className="btn-floating btn-fb" href="http://facebook.com">
@@ -102,8 +102,8 @@ class Footer extends Component{
         
         
         
-          <div className="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://food.com/"> Food</a>
+          <div className="footer-copyright text-center py-3">© 2021 Copyright:
+            <a href="https://foodhunt.com/"> Food</a>
           </div>
         
         
