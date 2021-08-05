@@ -14,10 +14,9 @@ import Popular from "./User_dahboard/popular";
 import Resturantdetails from "./User_dahboard/Foods";
 import Restaurant from "./User_dahboard/Restaurant";
 import Home from "./User_dahboard/Home";
-import Cart from "./User_dahboard/Viewcart";
 import Profile from "./User_dahboard/Profile";
-import ViewOrder from "./User_dahboard/vieworder";
-import Vieworderadmin from "./Vieworderadmin";
+import Profile from "./User_dahboard/Profile1";
+import Cart from "./User_dahboard/Viewcart";
 class Container extends Component{
     render(){
      
@@ -38,12 +37,11 @@ class Container extends Component{
                   <Route path='/viewRes/:id' component={Resturantdetails}/>
                   <Route path='/resturant' component={Restaurant}/>
                   <Route path="/home" component={Home} />
-                  <Route path="/view/carts" component={Cart} />
                   <Route path="/user/single" component={Profile} />
-                  <Route path="/view/order" component={ViewOrder} />
-                  <Route path="/order/admin" component={Vieworderadmin} />
+                  <Route path="/user/single1" component={Profile1} />
+                  <Route path="/view/carts" component={Cart} />
                    </div>
-                
+                   
                    </div>
             </div>
             

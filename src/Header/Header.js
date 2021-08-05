@@ -20,7 +20,7 @@ class Header extends Component{
               <Nav.Link href="/food/cat">Add Category</Nav.Link>
               <Nav.Link href="/restaurant/add">Add Restaurants</Nav.Link>
               <Nav.Link href="/user/show">Users</Nav.Link>
-              <Nav.Link href="/order/admin">Order</Nav.Link>
+              <Nav.Link href="/show/contact">Conatct us</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href="/users/logout">Logout</Nav.Link>
@@ -44,11 +44,10 @@ class Header extends Component{
               <Nav.Link href="/view/carts">Cart</Nav.Link>
               <Nav.Link href="/resturant">Restaurants</Nav.Link>
               <Nav.Link href="/popular">popular</Nav.Link>
-              <Nav.Link href="/view/order">Order</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href="/users/logout">Logout</Nav.Link>
-              <Nav.Link eventKey={2} href="/user/single">{localStorage.getItem('fullname')}
+              <Nav.Link eventKey={2} href="/user/single/:id">{localStorage.getItem('fullname')}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
