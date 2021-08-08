@@ -153,7 +153,7 @@ export default class Cart extends Component {
 
     return (
       <>
-     
+    
       <div class="container-fluid">
       <div id="viewCartDiv">
         <Table hover>
@@ -163,7 +163,7 @@ export default class Cart extends Component {
               <th>Note</th>
               <th>Quantity</th>
               <th>Price</th>
-              <th>Update</th>
+              <th>Edit</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -178,9 +178,9 @@ export default class Cart extends Component {
                   <td>{cart.food.price * cart.quanity}</td>   
                   <td>
                     <button type="button" class="btn btn-primary"
-                      onClick={() => this.handleEdit(cart._id)} >Update</button>
+                      onClick={() => this.handleEdit(cart._id)} >Edit</button>
                   </td>
-                  <td><button type="button" class="btn btn-danger" onClick={() => this.removeCardList(cart._id)}>Delete</button></td>
+                  <td><button type="button" class="btn btn-danger" onClick={() => this.removeCardList(cart._id)}>Remove</button></td>
                 </tr>)
               })
             }
@@ -193,7 +193,7 @@ export default class Cart extends Component {
             </tr>
             <tr>
               <td colSpan="6" align="right">
-              <button type="button" class="btn btn-lg btn-danger"
+              <button type="button" class="btn btn-lg btn-success"
               onClick={this.submit} >Order</button>
               </td>
             </tr>

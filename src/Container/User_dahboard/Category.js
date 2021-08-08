@@ -91,6 +91,7 @@ export default class Category extends Component {
               }, this.state.config)
               .then((response) => {
                 console.log(response);
+                alert("added to cart");
                 this.setState({
                   modal: !this.state.modal
             

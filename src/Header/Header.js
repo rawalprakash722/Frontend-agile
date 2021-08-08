@@ -34,7 +34,7 @@ class Header extends Component{
         else if(localStorage.getItem('token') && localStorage.getItem('role')=="customer"){
           var menu=
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">Food </Navbar.Brand>
+          <Navbar.Brand href="/home">Food </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
@@ -47,7 +47,7 @@ class Header extends Component{
             </Nav>
             <Nav>
               <Nav.Link href="/users/logout">Logout</Nav.Link>
-              <Nav.Link eventKey={2} href="/user/single/:id">{localStorage.getItem('fullname')}
+              <Nav.Link eventKey={2} href="/user/single">{localStorage.getItem('fullname')}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -59,7 +59,7 @@ class Header extends Component{
         else{
         var menu=
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Navbar.Brand href="/">Food</Navbar.Brand>
+  <Navbar.Brand href="/home">Food</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">

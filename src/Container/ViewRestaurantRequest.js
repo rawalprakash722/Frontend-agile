@@ -11,7 +11,7 @@ class ViewRestaurantRequest extends Component{
         }
     }
     componentDidMount(){
-        axios.get("http://localhost:90/users/show",this.state.config)
+        axios.get("http://localhost:90/users/user/show",this.state.config)
         .then((response)=>{
             console.log(response)
             this.setState({

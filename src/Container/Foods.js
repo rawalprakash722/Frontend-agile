@@ -106,7 +106,7 @@ export default class AddFood extends Component {
                     price:this.state.price,
                     foodimage:this.state.foodimage,
                     restaurant:this.state.resSelect,
-                    category:this.state.catSelect
+                    category:this.state.catSelect,
                 }, this.state.config)
                     .then((response) => {
                         console.log(response);
@@ -126,12 +126,12 @@ export default class AddFood extends Component {
                     <Col md={6} className="text-left mt-4">
                         <h2>Add Food</h2>
                     </Col>
-                    <Col md={6} className="text-right mt-4">
+                    {/* <Col md={6} className="text-right mt-4">
                         <Button color='primary' onClick={this.toggle}>
                             <MdAdd style={{fontSize:"30px", color:"white"}} />
                             Add Food Category
                         </Button>
-                    </Col>
+                    </Col> */}
                 </Row>
                 <hr/>
                 <form className="col-10">
@@ -149,7 +149,7 @@ export default class AddFood extends Component {
                                 <Label for='foodprice'>
                                     <legend style={{fontSize:18}}>Food price</legend>
                                 </Label>
-                                <NumberFormat id='foodprice' name='price'
+                                <Input id='foodprice' name='price'
                                     customInput={Input} 
                                     onChange={ this.handleChange}
                                     thousandSeparator 

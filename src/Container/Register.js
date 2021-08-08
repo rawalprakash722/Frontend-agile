@@ -55,7 +55,7 @@ class Register extends Component{
            </div>
 
           
-           <div className="form-group"><input type="Text" className="form-control" placeholder="Password" value={this.state.password} onChange={(event)=>{this.setState({password:event.target.value})}}/>
+           <div className="form-group"><input type="Password" className="form-control" placeholder="Password" value={this.state.password} onChange={(event)=>{this.setState({password:event.target.value})}}/>
            </div>
            <div className="form-group"><input type="Password" className="form-control" placeholder="Confirm Password"/></div>
            
