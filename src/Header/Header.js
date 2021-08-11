@@ -44,6 +44,7 @@ class Header extends Component{
               <Nav.Link href="/view/carts">Cart</Nav.Link>
               <Nav.Link href="/resturant">Restaurants</Nav.Link>
               <Nav.Link href="/popular">popular</Nav.Link>
+              <Nav.Link href="/view/order">Order</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href="/users/logout">Logout</Nav.Link>

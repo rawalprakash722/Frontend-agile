@@ -126,7 +126,7 @@ export default class Profile extends Component {
                         value={this.state.user.email}  onChange={(e) => this.handleChange(e)}  />
                     </div>
                     <button type="submit" className="btn btn-primary btn-block" onClick={this.handleupdate}>Update</button>
-                    <a onClick={this.openModal} style={{cursor:'pointer'}}>Change password</a>
+                    <a onClick={this.openModal} className="btn btn-danger btn-block" style={{cursor:'pointer'}}>Change password</a>
                 </form>
 
                 <Modal isOpen={this.state.isShow} toggle={this.openModal}>
