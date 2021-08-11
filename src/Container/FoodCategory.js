@@ -103,7 +103,7 @@ export default class ListFoods extends Component {
                 }).catch((err)=>console.log(err.response))
             }).catch((err) => console.log(err.response))
     }
-     
+     //update category
     updateCat = (catId) => {
       const data = new FormData()
       data.append('imageFile', this.state.selectedFile)
