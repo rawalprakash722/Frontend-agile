@@ -40,10 +40,10 @@ class Header extends Component{
             <Nav className="mr-auto">
               <Nav.Link href="/restaurant/register">Request</Nav.Link>
               <Nav.Link href="/category">Category</Nav.Link>
-              <Nav.Link href="/foodsr">foods</Nav.Link>
+              <Nav.Link href="/foodsr">Foods</Nav.Link>
               <Nav.Link href="/view/carts">Cart</Nav.Link>
               <Nav.Link href="/resturant">Restaurants</Nav.Link>
-              <Nav.Link href="/popular">popular</Nav.Link>
+              <Nav.Link href="/popular">Popular</Nav.Link>
               <Nav.Link href="/view/order">Order</Nav.Link>
             </Nav>
             <Nav>
