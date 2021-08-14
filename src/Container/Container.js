@@ -17,6 +17,7 @@ import Home from "./User_dahboard/Home";
 import Cart from "./User_dahboard/Viewcart";
 import Profile from "./User_dahboard/Profile";
 import ViewOrder from "./User_dahboard/vieworder";
+import Vieworderadmin from "./Vieworderadmin";
 class Container extends Component{
     render(){
      
@@ -40,8 +41,9 @@ class Container extends Component{
                   <Route path="/view/carts" component={Cart} />
                   <Route path="/user/single" component={Profile} />
                   <Route path="/view/order" component={ViewOrder} />
+                  <Route path="/order/admin" component={Vieworderadmin} />
                    </div>
-                   
+                
                    </div>
             </div>
             

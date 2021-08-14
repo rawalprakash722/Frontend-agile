@@ -8,9 +8,10 @@ export default class ViewOrder extends Component {
         super(props)
     
         this.state = {
-            user : '',
+            
             modal:false,
             food : '',
+            user : '',
             quanity : '',
             orderDate:'',
             totprice: '',
@@ -106,6 +107,7 @@ export default class ViewOrder extends Component {
                       <th>Quantity</th>
                       <th>Price</th>
                       <th>Total Price</th>
+                      <th>Name</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -113,11 +115,13 @@ export default class ViewOrder extends Component {
                         this.state.viewOrder.map(listItem=>{
                           return(
                             <tr key={listItem._id}>
+                              
                                
                               <td>{listItem.food.foodname}</td>
                               <td>{listItem.quanity}</td>
                               <td>{listItem.food.price}</td>
                               <td>{listItem.food.price*listItem.quanity}</td>
+                              <td>{listItem.user.email}</td>
                             </tr>
                           )
                         })
