@@ -45,15 +45,16 @@ export default class AddRestuarant extends Component {
     addRest = () => {
       const data = new FormData();
       data.append('imageFile',this.state.selectedFile)
-      Axios.post('http://localhost:90/upload', data, this.state.config)
+      Axios.post('http://localhost:5000/upload', data, this.state.config)
       .then((response) => {
           this.setState({
               res_image: response.data.filename
           })
-          Axios.post('http://localhost:90/resturants',this.state,this.state.config)
+          Axios.post('http://localhost:5000/resturants',this.state,this.state.config)
           .then((response) => {
-            alert("Restaurant added successfully");
+            
             console.log(response.data)
+            alert("Restaurant added successfully");
           })
           .catch((err) => console.log(err.response))
       }).catch((err) => console.log(err.response))

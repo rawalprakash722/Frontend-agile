@@ -11,7 +11,7 @@ class ViewRestaurantRequest extends Component{
         }
     }
     componentDidMount(){
-        axios.get("http://localhost:90/users/user/show",this.state.config)
+        axios.get("http://localhost:5000/users/user/show",this.state.config)
         .then((response)=>{
             console.log(response)
             this.setState({
@@ -23,6 +23,17 @@ class ViewRestaurantRequest extends Component{
         })
     }
     
+    deleteUser = (uid) =>{
+        axios.delete('http://localhost:5000/users/user/deletee/' + uid,  this.state.config)
+    .then((response)=>{
+        console.log(response)
+        alert(response.data.message)
+        window.location.reload()
+    })
+    .catch((err)=>{
+        console.log(err.response)
+    })
+}
 
        
     render(){
@@ -61,7 +72,7 @@ class ViewRestaurantRequest extends Component{
     </tbody>
     </table>
     
-    <p><button className="btn btn-danger">Delete</button></p>
+    <p><button className="btn btn-primary" type="submit" onClick={this.deleteUser.bind(this, user._id)}>Delete Account</button></p>
 
     
                             </div>

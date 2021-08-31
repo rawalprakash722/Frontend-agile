@@ -1,91 +1,150 @@
 import { Component } from "react";
 import {Link} from 'react-router-dom';
 import { Nav, NavDropdown, Navbar, Form, Button, FormControl } from 'react-bootstrap';
+import {useDispatch,useSelector } from 'react-redux'
+
+import { FaWeightHanging,FaHotel,FaUserAstronaut,FaRegTrashAlt,FaShoppingCart,FaBuysellads,FaBiking,FaStudiovinari, FaCartPlus,FaRss,FaSignInAlt,FaBlog,FaRegLightbulb,FaRegQuestionCircle,FaUserSecret,FaSuitcaseRolling,FaInfo,FaRegMoon,FaUserGraduate,FaTty, FaRibbon,FaPlus,FaShareSquare,  FaPlusCircle, FaWindowRestore, FaUsers, FaMedapps, FaTelegramPlane,FaUserCog } from 'react-icons/fa'
+import {FcContacts,FcManager,FcPlus,FcButtingIn,FcTwoSmartphones,FcSmartphoneTablet,FcCurrencyExchange,FcViewDetails,FcOnlineSupport,FcAddDatabase,FcDonate,FcBullish,FcCallback,FcAbout,FcComboChart } from 'react-icons/fc'
+import { GoGitPullRequest } from "react-icons/go";
+import { IoFastFoodSharp } from "react-icons/io5";
 
 
 class Header extends Component{
+
+  
+  logout = ()=>{
+    localStorage.removeItem('token')
+    localStorage.removeItem('userType')
+ 
+    localStorage.removeItem('firstname')
+    window.location.href = '/'
+  }
+
  
     render(){
+      
       
       
       {
         if(localStorage.getItem('token') && localStorage.getItem('role')=="admin"){
           var menu=
-          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">Food </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="/add/food">Add food</Nav.Link>
-              <Nav.Link href="/food/cat">Add Category</Nav.Link>
-              <Nav.Link href="/restaurant/add">Add Restaurants</Nav.Link>
-              <Nav.Link href="/user/show">Users</Nav.Link>
-              <Nav.Link href="/show/contact">Conatct us</Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link href="/users/logout">Logout</Nav.Link>
-              <Nav.Link eventKey={2} href="/user/single/:id">{localStorage.getItem('fullname')}
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+          <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+           
+          </Nav>
+
+          <Form inline>
+            <Nav.Link href="/add/food">Add food<FcAddDatabase/></Nav.Link>
+              <Nav.Link href="/food/cat">Add Category<FcAddDatabase/></Nav.Link>
+              <Nav.Link href="/restaurant/add">Add Restaurants<FcAddDatabase/></Nav.Link>
+              <Nav.Link href="/user/show">Users<FaUserAstronaut/></Nav.Link>
+              <Nav.Link href="/order/admin">Order<FaShoppingCart/></Nav.Link>
+       
+              <Nav.Link eventKey={2} href="/user/single/:id">{localStorage.getItem('fullname')}<FcManager/>
+            </Nav.Link>
+            {/* <Nav.Link href="/logout"><FaShareSquare/>Logout</Nav.Link> */}
+            <Button Link to="/logout" className="btn btn-danger" onClick={this.logout}><FaShareSquare/> Log out</Button>
+        
+  
+      </Form>
+      </Navbar.Collapse>
+
+
+
+
+}
          
-        }
+
+
         else if(localStorage.getItem('token') && localStorage.getItem('role')=="customer"){
           var menu=
-          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/home">Food </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="/restaurant/register">Request</Nav.Link>
+
+          <Navbar.Collapse id="responsive-navbar-nav" >
+        <Nav className="mr-auto">
+
+        </Nav>
+        <Form inline>
+
+              <Nav.Link href="/restaurant/register">Request<GoGitPullRequest/></Nav.Link>
               <Nav.Link href="/category">Category</Nav.Link>
-              <Nav.Link href="/foodsr">foods</Nav.Link>
-              <Nav.Link href="/view/carts">Cart</Nav.Link>
-              <Nav.Link href="/resturant">Restaurants</Nav.Link>
+              <Nav.Link href="/foodsr">foods<IoFastFoodSharp/></Nav.Link>
+              <Nav.Link href="/view/carts">Cart<FaShoppingCart/></Nav.Link>
+              <Nav.Link href="/resturant">Restaurants<FaHotel/></Nav.Link>
               <Nav.Link href="/popular">popular</Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link href="/users/logout">Logout</Nav.Link>
-              <Nav.Link eventKey={2} href="/user/single/:id">{localStorage.getItem('fullname')}
+              <Nav.Link href="/view/order">Order</Nav.Link>
+              <Nav.Link eventKey={2} href="/user/single">{localStorage.getItem('fullname')}<FcManager/>
               </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+              <Button Link to="/logout" className="btn btn-danger" onClick={this.logout}><FaShareSquare/> Log out</Button>
+       
+    
+         
+           
+           
+              </Form>
+       </Navbar.Collapse>
          
         }
       
    
         else{
         var menu=
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Navbar.Brand href="/home">Food</Navbar.Brand>
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-  <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="mr-auto">
-      <Nav.Link href="/restaurant/register">Register Restaurant</Nav.Link>
-      <NavDropdown title="Login/Signup" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="/users/login">Login</NavDropdown.Item>
-        <NavDropdown.Item href="/users/signup">Register</NavDropdown.Item>
+ 
 
-        
-       
-      </NavDropdown>
-      <Nav.Link href="/insert/contact">Conatct us</Nav.Link>
-    </Nav>
+<Navbar.Collapse id="responsive-navbar-nav">
+   
+   <Nav className="mr-auto">
+
+
+      <Nav.Link href="/Aboutus">About us<IoFastFoodSharp/></Nav.Link>
+
+      <Nav.Link href="/restaurant/register">Register Restaurant<FcAddDatabase/></Nav.Link>
+
+      <Nav.Link href="/insert/contact">Conatct us<FcOnlineSupport/></Nav.Link>
+      
+     
     
+</Nav>
+    
+    <Form inline>
+  
+    <Button href="/users/login" className="btn btn-success"><FaSignInAlt/> Sign in</Button>
+    {/* <Button href="/user/login"><FaSignInAlt/> Sign in</Button> */}
+  
+  </Form>
+
+
   </Navbar.Collapse>
-</Navbar>
-      }
+
       }
     
         return(
-          <div>
-             {menu}
-          </div>
+      
+          <Navbar collapseOnSelect expand="lg" bg="white" className="shadow">
+        
+ 
+          <Navbar.Brand href="/">
+            <img src="/logo.jpg" clsassName="d-inline-block align-top" alt="logo" style={{height:'50px', width:'50px'}} />
+   
+          </Navbar.Brand>
+          
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+         
+    
+            {menu}
+           
+                 
+        </Navbar>
+
+      
+         
          
         )
     }
 }
+
+}
+
+
+
 
 export default Header

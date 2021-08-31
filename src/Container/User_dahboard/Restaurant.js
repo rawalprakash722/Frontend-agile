@@ -18,7 +18,7 @@ export default class Restaurant extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:90/resturants',this.config)
+    Axios.get('http://localhost:5000/resturants',this.config)
     .then((response)=>{
       const data = response.data;
       this.setState({popular:  data});
@@ -37,7 +37,7 @@ export default class Restaurant extends Component {
                 <div key={pop._id} className="Col-md-4" id="product">
                   <figure className="card card-product">
                     <Link to={`/viewRes/${pop._id}`}>
-                    <img width='200' height='200' alt='restaurantPic' src={`http://localhost:90/pictures/${pop.res_image}`}/></Link>
+                    <img width='200' height='200' alt='restaurantPic' src={`http://localhost:5000/pictures/${pop.res_image}`}/></Link>
                     <figcaption className="info-wrap">
                       <h4 className="title">
                         <Link to={`/viewRes/${pop._id}`}>

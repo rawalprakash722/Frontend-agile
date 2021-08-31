@@ -5,109 +5,143 @@ class Footer extends Component{
         return(
             
          
-          <footer className="page-footer font-small mdb-color lighten-3 pt-4">
-
-
-          <div className="container text-center text-md-left">
         
+          <footer className="page-footer font-small blue-grey lighten-5">
+       
+
+        
+
+              <div style={{backgroundColor: '#21d192'}}>
+       
+              <div className="container">
           
-            <div className="row">
-        
-        
-              <div className="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
-        
+              
+                <div className="row py-4 d-flex align-items-center">
+          
+            
+                  <div className="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                    
+                    <h6 className="mb-0">Get connected with us on social networks!</h6>
+                  </div>
+              
+          
                 
-                <h5 className="font-weight-bold text-uppercase mb-4">Food hunt</h5>
-                <p>Welcome to Food hunt</p>
-                <p>You can buy food items at affordable price.</p>
+                  <div className="col-md-6 col-lg-7 text-center text-md-right">
+          
+            
+                    <a className="fb-ic">
+                      <i className="fab fa-facebook-f white-text mr-4"> </i>
+                    </a>
         
-              </div>  
-         
-        
-              <hr className="clearfix w-100 d-md-none"/>
-        
-              <div className="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
-        
-        
-                <h5 className="font-weight-bold text-uppercase mb-4">Quick links</h5>
-        
-                <ul className="list-unstyled">
-                  <li>
-                    <p>
-                      <a href="../dashboard">Dashboard</a>
-                    </p>
-                  </li>
-             
+                    <a className="tw-ic">
+                      <i className="fab fa-twitter white-text mr-4"> </i>
+                    </a>
                   
-                 
-                </ul>
-        
-              </div>
-        
-        
-              <hr className="clearfix w-100 d-md-none"/>
-        
-        
-              <div className="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
-        
-         
-                <h5 className="font-weight-bold text-uppercase mb-4">Address</h5>
-        
-                <ul className="list-unstyled">
-                  <li>
-                    <p>
-                      <i className="fas fa-home mr-3"></i> Kathmandu , Dillibazar </p>
-                  </li>
-                  <li>
-                    <p>
-                      <i className="fas fa-envelope mr-3"></i> food@gmail.com</p>
-                  </li>
-                  <li>
-                    <p>
-                      <i className="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                  </li>
-                  <li>
-                    <p>
-                      <i className="fas fa-print mr-3"></i> + 01 234 567 89</p>
-                  </li>
-                </ul>
-        
-              </div>
+                    <a className="gplus-ic">
+                      <i className="fab fa-google-plus-g white-text mr-4"> </i>
+                    </a>
+                  
+                    <a className="li-ic">
+                      <i className="fab fa-linkedin-in white-text mr-4"> </i>
+                    </a>
+              
+                    <a className="ins-ic">
+                      <i className="fab fa-instagram white-text"> </i>
+                    </a>
           
-        
-              <hr className="clearfix w-100 d-md-none"/>
-        
-              <div className="col-md-2 col-lg-2 text-center mx-auto my-4">
-        
-        
-                <h5 className="font-weight-bold text-uppercase mb-4">Follow Us</h5>
-        
-        
-                <a type="button" className="btn-floating btn-fb" href="http://facebook.com">
-                  <i className="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
-                </a>
+                  </div>
+            
           
-                <a type="button" className="btn-floating btn-tw" href="http://instagram.com">
-                  <i className="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
-                </a>
-        
-        
+                </div>
+              
+          
               </div>
-        
-        
             </div>
+          
+    
+            <div className="container text-center text-md-left mt-5">
+          
+      
+              <div className="row mt-3 dark-grey-text">
+          
+            
+                <div className="col-md-3 col-lg-4 col-xl-5 mb-4">
+          
+                <video className="vid"  autoplay="autoplay" loop="true" muted playsInline width="100%" height="250px" >
+                    <source src="home.mp4" type="video/mp4">
+              
+                  </source>
+                  </video>
+
+                </div>
+         
+                <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          
+      
+                  <h6 className="text-uppercase font-weight-bold">Sponsored website</h6>
+                  <hr className="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}></hr>
+                  <p>
+                    <a className="dark-grey-text" href="#!">hamrobazar</a>
+                  </p>
+                  <p>
+                    <a className="dark-grey-text" href="#!">daraz</a>
+                  </p>
+                  <p>
+                    <a className="dark-grey-text" href="#!">sastodeal</a>
+                  </p>
+                  <p>
+                    <a className="dark-grey-text" href="#!">pathau</a>
+                  </p>
+          
+                </div>
+         
+                <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          
         
+                  <h6 className="text-uppercase font-weight-bold">Useful links</h6>
+                  <hr className="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px' }}></hr>
+                  <p>
+                    <a className="dark-grey-text" href="#!">Your Account</a>
+                  </p>
+                  <p>
+                    <a className="dark-grey-text" href="#!">Become an Affiliate</a>
+                  </p>
+                  <p>
+                    <a className="dark-grey-text" href="#!">Shipping Rates</a>
+                  </p>
+                  <p>
+                    <a className="dark-grey-text" href="#!">Help</a>
+                  </p>
+          
+                </div>
+         
+                <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+   
+                  <h6 className="text-uppercase font-weight-bold">Contact</h6>
+                  <hr className="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style= {{width: '60px'}}></hr>
+                  <p>
+                    <i className="fas fa-home mr-3"></i> Tokha, KTM 10012, US</p>
+                  <p>
+                    <i className="fas fa-envelope mr-3"></i>foodhunt@gmail.com</p>
+                  <p>
+                    <i className="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                  <p>
+                    <i className="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          
+                </div>
         
-          </div>
+          
+              </div>
         
-        
-        
-          <div className="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://food.com/"> Food</a>
-          </div>
-        
-        
-        </footer>
+          
+            </div>
+         
+            <div className="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
+              <a className="dark-grey-text" href="https://mobilenepals.com/"> foodhunt.com</a>
+            </div>
+    
+          
+          </footer>
       
         )
     }

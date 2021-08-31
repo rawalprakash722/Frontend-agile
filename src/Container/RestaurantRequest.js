@@ -16,7 +16,7 @@ class RestaurantRequest extends Component{
             password:"123456789",
             role:'restaurant'
         }
-        axios.post("http://localhost:90/users/signup",data).then(alert("Register Successfull")).catch(error=>{console.log(error);})
+        axios.post("http://localhost:5000/users/signup",data).then(alert("Register Successfull")).catch(error=>{console.log(error);})
     }
     render(){
         return(

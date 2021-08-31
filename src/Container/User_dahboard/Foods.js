@@ -16,7 +16,7 @@ export default class Resturantdetails extends Component {
     componentDidMount() {
       let resId = this.props.match.params.id;
       console.log("Restaurant ID: "+resId)
-      Axios.get(`http://localhost:90/foods/searchByRes/${resId}`,this.config)
+      Axios.get(`http://localhost:5000/foods/searchByRes/${resId}`,this.config)
       .then((response)=>{
         const data = response.data;
         this.setState({popular:  data});
@@ -34,7 +34,7 @@ export default class Resturantdetails extends Component {
                   <div className="Col-md-4" id="product">
                     <figure className="card card-product">
                       <div className="image_wrap">
-                        <img alt="foodPic" src={`http://localhost:90/pictures/${pop.foodimage}`} onClick={this.addcart}/>
+                        <img alt="foodPic" src={`http://localhost:5000/pictures/${pop.foodimage}`} onClick={this.addcart}/>
                       </div>
                       <figcaption class="info-wrap">
                         <h4 class="title">{pop.foodname}</h4>
