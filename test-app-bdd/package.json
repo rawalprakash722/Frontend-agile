@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js features"
+    "start": "react-scripts start",
+    "test": "cucumber-js features",
+    "build":"react-scripts build"
   },
   "author": "",
   "license": "ISC",

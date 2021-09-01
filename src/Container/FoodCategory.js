@@ -3,6 +3,7 @@ import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter,Input, FormGr
 import Axios from 'axios'
 
 import { MdAdd } from "react-icons/md";
+import {BACKEND_URL} from '.././config';
 
 export default class ListFoods extends Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export default class ListFoods extends Component {
     } 
              
     componentDidMount() {
-      Axios.get('http://localhost:5000/foodCat', this.state.config)
+      Axios.get(BACKEND_URL+'/foodCat', this.state.config)
         .then((response)=>{
             const data = response.data;
             this.setState({categories:data});
@@ -47,7 +48,7 @@ export default class ListFoods extends Component {
     }
 
     deleteCat = (catId) => {
-      Axios.delete(`http://localhost:5000/foodCat/${catId}`, this.state.config)
+      Axios.delete(BACKEND_URL+`/foodCat/${catId}`, this.state.config)
       .then((response) => {
         window.location.reload(false)
       }).catch(err=>console.log(err.response));
@@ -57,12 +58,12 @@ export default class ListFoods extends Component {
       this.setState({
         modal: !this.state.modal
       });
-      Axios.get(`http://localhost:5000/foodCat/${catId}`,this.state.config)
+      Axios.get(BACKEND_URL+`/foodCat/${catId}`,this.state.config)
       .then((response)=>{
         const data = response.data;
           this.setState({
             category: data,
-            imgPreview:`http://localhost:5000/pictures/${data.catImg}`
+            imgPreview:BACKEND_URL+`/pictures/${data.catImg}`
           });    
         console.log(this.state.imgPreview)
         })
@@ -86,12 +87,12 @@ export default class ListFoods extends Component {
       e.preventDefault();
         const data = new FormData()
         data.append('imageFile', this.state.selectedFile)
-        Axios.post('http://localhost:5000/upload', data, this.state.config)
+        Axios.post(BACKEND_URL+'/upload', data, this.state.config)
             .then((response) => {
                 this.setState({
                     catImg: response.data.filename
                 })
-            Axios.post('http://localhost:5000/foodCat',
+            Axios.post(BACKEND_URL+'/foodCat',
             {
               category:this.state.category,
               catImg:this.state.catImg
@@ -107,12 +108,12 @@ export default class ListFoods extends Component {
     updateCat = (catId) => {
       const data = new FormData()
       data.append('imageFile', this.state.selectedFile)
-      Axios.post('http://localhost:5000/upload', data, this.state.config)
+      Axios.post(BACKEND_URL+'/upload', data, this.state.config)
         .then((response) => {
           this.setState({
             catImg: response.data.filename
           })
-        Axios.put(`http://localhost:5000/foodCat/${catId}`, 
+        Axios.put(BACKEND_URL+`/foodCat/${catId}`, 
         { 
           category: this.state.category.category,
           catImg:this.state.catImg
@@ -159,7 +160,7 @@ export default class ListFoods extends Component {
                 <tr key={cat._id}>
                   <td>{cat.category}</td>
                   <td>
-                    <img alt="catIcon" src={`http://localhost:5000/pictures/${cat.catImg}`} style={{height: "50px",width:"50px"}}/>
+                    <img alt="catIcon" src={BACKEND_URL+`/pictures/${cat.catImg}`} style={{height: "50px",width:"50px"}}/>
                   </td>
                   <td>
                     <a className="btn btn-primary" onClick={() => this.handleEdit(cat._id)}>Update</a>

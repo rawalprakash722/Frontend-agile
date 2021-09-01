@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Label, FormGroup, Button, Input } from 'reactstrap'
 import Axios from 'axios'
 import ListResturant from './ListResturant'
-
+import {BACKEND_URL} from '.././config';
 
 export default class AddRestuarant extends Component {
   constructor(props) {
@@ -45,12 +45,12 @@ export default class AddRestuarant extends Component {
     addRest = () => {
       const data = new FormData();
       data.append('imageFile',this.state.selectedFile)
-      Axios.post('http://localhost:5000/upload', data, this.state.config)
+      Axios.post(BACKEND_URL+'/upload', data, this.state.config)
       .then((response) => {
           this.setState({
               res_image: response.data.filename
           })
-          Axios.post('http://localhost:5000/resturants',this.state,this.state.config)
+          Axios.post(BACKEND_URL+'/resturants',this.state,this.state.config)
           .then((response) => {
             
             console.log(response.data)

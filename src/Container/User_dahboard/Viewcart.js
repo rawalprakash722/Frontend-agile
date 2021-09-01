@@ -4,6 +4,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import moment from 'moment';
 import { Table, Modal, ModalHeader, ModalBody, ModalFooter, Label, Input, FormGroup} from 'reactstrap';
+import {BACKEND_URL} from '../../config';
 
 
 export default class Cart extends Component {
@@ -41,7 +42,7 @@ export default class Cart extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:5000/cart', this.state.config)
+    Axios.get(BACKEND_URL+'/cart', this.state.config)
       .then((response) => {
         console.log(response.data)
         this.setState({
@@ -52,7 +53,7 @@ export default class Cart extends Component {
   }
 
   removeCardList = (CartId) => {
-    Axios.delete(`http://localhost:5000/cart/${CartId}`, this.state.config)
+    Axios.delete(BACKEND_URL+`/cart/${CartId}`, this.state.config)
       .then((response) => {
         
         const filteredCartList = this.state.cart.filter((cart) => {
@@ -78,7 +79,7 @@ export default class Cart extends Component {
     this.setState({
       modal: !this.state.modal
     })
-    Axios.get(`http://localhost:5000/cart/${foodId}`, this.state.config)
+    Axios.get(BACKEND_URL+`/cart/${foodId}`, this.state.config)
       .then((response) => {
         const data = response.data;
         this.setState({
@@ -89,7 +90,7 @@ export default class Cart extends Component {
   }
 
   handleUpdate = (cartId) => {
-    Axios.put(`http://localhost:5000/cart/${cartId}`,{
+    Axios.put(BACKEND_URL+`/cart/${cartId}`,{
       quanity: this.state.viewfood.quanity,
       totalprice: (this.state.viewfood.food.price * this.state.viewfood.quanity),
       notes: this.state.viewfood.notes,
@@ -106,7 +107,7 @@ export default class Cart extends Component {
 
   handleOrder = () => {
     this.state.cart.forEach(item => {
-      Axios.post(`http://localhost:5000/order/`,
+      Axios.post(BACKEND_URL+`/order/`,
       {
         food: item.food._id,
         notes: item.notes,
@@ -114,7 +115,7 @@ export default class Cart extends Component {
         quanity: item.quanity
       }, this.state.config)
       .then((response) => {
-        Axios.delete(`http://localhost:5000/cart/${item._id}`, this.state.config)
+        Axios.delete(BACKEND_URL+`/cart/${item._id}`, this.state.config)
           .then((response)=>{
             console.log("Deleted Successfully")
             window.location.reload();

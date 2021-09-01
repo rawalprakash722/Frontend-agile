@@ -34,6 +34,10 @@ class Header extends Component{
           </Nav>
 
           <Form inline>
+
+
+
+            
             <Nav.Link href="/add/food">Add food<FcAddDatabase/></Nav.Link>
               <Nav.Link href="/food/cat">Add Category<FcAddDatabase/></Nav.Link>
               <Nav.Link href="/restaurant/add">Add Restaurants<FcAddDatabase/></Nav.Link>
@@ -65,9 +69,9 @@ class Header extends Component{
         </Nav>
         <Form inline>
 
-              <Nav.Link href="/restaurant/register">Request<GoGitPullRequest/></Nav.Link>
+              {/* <Nav.Link href="/restaurant/register">Request<GoGitPullRequest/></Nav.Link> */}
               <Nav.Link href="/category">Category</Nav.Link>
-              <Nav.Link href="/foodsr">foods<IoFastFoodSharp/></Nav.Link>
+              {/* <Nav.Link href="/foodsr">foods<IoFastFoodSharp/></Nav.Link> */}
               <Nav.Link href="/view/carts">Cart<FaShoppingCart/></Nav.Link>
               <Nav.Link href="/resturant">Restaurants<FaHotel/></Nav.Link>
               <Nav.Link href="/popular">popular</Nav.Link>
@@ -97,7 +101,7 @@ class Header extends Component{
 
       <Nav.Link href="/Aboutus">About us<IoFastFoodSharp/></Nav.Link>
 
-      <Nav.Link href="/restaurant/register">Register Restaurant<FcAddDatabase/></Nav.Link>
+      {/* <Nav.Link href="/restaurant/register">Register Restaurant<FcAddDatabase/></Nav.Link> */}
 
       <Nav.Link href="/insert/contact">Conatct us<FcOnlineSupport/></Nav.Link>
       

@@ -3,6 +3,7 @@ import {Row,Container } from 'reactstrap'
 import './popular.css';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import {BACKEND_URL} from '../../config';
 
 export default class Restaurant extends Component {
 
@@ -18,7 +19,7 @@ export default class Restaurant extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:5000/resturants',this.config)
+    Axios.get(BACKEND_URL+'/resturants',this.config)
     .then((response)=>{
       const data = response.data;
       this.setState({popular:  data});
@@ -37,7 +38,7 @@ export default class Restaurant extends Component {
                 <div key={pop._id} className="Col-md-4" id="product">
                   <figure className="card card-product">
                     <Link to={`/viewRes/${pop._id}`}>
-                    <img width='200' height='200' alt='restaurantPic' src={`http://localhost:5000/pictures/${pop.res_image}`}/></Link>
+                    <img width='200' height='200' alt='restaurantPic' src={BACKEND_URL+`/pictures/${pop.res_image}`}/></Link>
                     <figcaption className="info-wrap">
                       <h4 className="title">
                         <Link to={`/viewRes/${pop._id}`}>

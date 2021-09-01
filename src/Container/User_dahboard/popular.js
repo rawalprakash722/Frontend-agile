@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Row, Modal, ModalHeader, ModalBody, ModalFooter, Container } from 'reactstrap'
 import './popular.css'
 import Axios from 'axios'
+import {BACKEND_URL} from '../../config';
 
 export default class Popular extends Component {
 
@@ -37,7 +38,7 @@ export default class Popular extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:5000/foods',this.state.config)
+    Axios.get(BACKEND_URL+'/foods',this.state.config)
     .then((response)=>{
       const data = response.data;
       this.setState({popular:  data});
@@ -55,7 +56,7 @@ export default class Popular extends Component {
       modal: !this.state.modal
 
     })
-    Axios.get(`http://localhost:5000/foods/${foodId}`, this.state.config)
+    Axios.get(BACKEND_URL+`/foods/${foodId}`, this.state.config)
       .then((response) => {
         const data = response.data;
         this.setState({
@@ -73,7 +74,7 @@ export default class Popular extends Component {
     // }
     // else{
     //   if(localStorage.getItem('token'!=null)){
-        Axios.post(`http://localhost:5000/cart/`,
+        Axios.post(BACKEND_URL+`/cart/`,
           {
             food: this.state.food._id,
             totalprice: (this.state.totalprice * this.state.quantity),
@@ -102,7 +103,7 @@ export default class Popular extends Component {
                 this.state.popular.map((pop => 
                   <div key={pop._id} className="Col-md-4" id="product">
                     <figure className="card card-product p-2">
-                        <img alt="foodPic" width='250' height='150' src={`http://localhost:5000/pictures/${pop.foodimage}`}/>
+                        <img alt="foodPic" width='250' height='150' src={BACKEND_URL+`/pictures/${pop.foodimage}`}/>
                         <figcaption className="info-wrap">
                           <legend className="title">{pop.foodname}</legend>
                           <h6 className="title">Rs. {pop.price}</h6>

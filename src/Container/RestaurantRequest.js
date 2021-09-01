@@ -1,5 +1,6 @@
 import { Component } from "react";
-import axios from 'axios'
+import axios from 'axios';
+import {BACKEND_URL} from '.././config';
 
 
 class RestaurantRequest extends Component{
@@ -7,7 +8,8 @@ class RestaurantRequest extends Component{
         fullname:"",
         password:"",
         email:"",
-        role:""
+        role:"",
+        contact:""
     }
     sendUserData = ( ) =>{
         const data={
@@ -16,7 +18,7 @@ class RestaurantRequest extends Component{
             password:"123456789",
             role:'restaurant'
         }
-        axios.post("http://localhost:5000/users/signup",data).then(alert("Register Successfull")).catch(error=>{console.log(error);})
+        axios.post(BACKEND_URL+"/users/signup",data).then(alert("Register Successfull")).catch(error=>{console.log(error);})
     }
     render(){
         return(
@@ -27,6 +29,8 @@ class RestaurantRequest extends Component{
            <div className="form-group"><input type="Text" className="form-control" placeholder="Name" value={this.state.fullname} onChange={(event)=>{this.setState({fullname:event.target.value})}}/>
            </div>
            <div className="form-group"><input type="Text" className="form-control" placeholder="Email" value={this.state.email} onChange={(event)=>{this.setState({email:event.target.value})}}/>
+           </div>
+           <div className="form-group"><input type="Text" className="form-control" placeholder="Phone" value={this.state.contact} onChange={(event)=>{this.setState({contact:event.target.value})}}/>
            </div>
           
           

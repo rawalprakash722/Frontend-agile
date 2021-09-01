@@ -3,6 +3,7 @@ import {Row,Col,Modal,ModalHeader,ModalBody,ModalFooter,Container} from  'reacts
 import Axios from 'axios'
 import   './category.css';
 import { FiSearch } from "react-icons/fi";
+import {BACKEND_URL} from '../../config';
 
 export default class Category extends Component {
     constructor(props) {
@@ -32,7 +33,7 @@ export default class Category extends Component {
     }  
 
     componentDidMount() {
-        Axios.get('http://localhost:5000/foodCat', this.state.config)
+        Axios.get(BACKEND_URL+'/foodCat', this.state.config)
           .then((response) => {
             console.log(response.data)
             this.setState({
@@ -43,7 +44,7 @@ export default class Category extends Component {
     }
 
     searchFood=(catId, catName)=>{
-       Axios.get(`http://localhost:5000/foods/searchByCat/${catId}`, this.state.config)
+       Axios.get(BACKEND_URL+`/foods/searchByCat/${catId}`, this.state.config)
         .then((response)=>{
             const data=response.data
             if(data[0]!=null){
@@ -66,7 +67,7 @@ export default class Category extends Component {
         this.setState({
           modal: !this.state.modal
         })
-        Axios.get(`http://localhost:5000/foods/${foodId}`, this.state.config)
+        Axios.get(BACKEND_URL+`/foods/${foodId}`, this.state.config)
           .then((response) => {
             const data = response.data;
             this.setState({
@@ -82,7 +83,7 @@ export default class Category extends Component {
         if(token!=null){
         //   if(localStorage.getItem('token'!=null)){
             
-            Axios.post(`http://localhost:5000/cart/`,
+            Axios.post(BACKEND_URL+`/cart/`,
               {
                 food: this.state.food._id,
                 totalprice: (this.state.totalprice * this.state.quantity),
@@ -108,7 +109,7 @@ export default class Category extends Component {
     searchbyName=(e)=>{
         if(e.target.value!=null){
             console.log(e.target.value)
-            Axios.get(`http://localhost:5000/foods/searchByName/${e.target.value}`, this.state.config)
+            Axios.get(BACKEND_URL+`/foods/searchByName/${e.target.value}`, this.state.config)
             .then((response)=>{
                 const data = response.data.food;
                 console.log(response.data.food)
@@ -159,7 +160,7 @@ export default class Category extends Component {
                                 <img alt="catPic" 
                                     style={{ width:'40px', height:'40px'}}
                                     className="categoryList"
-                                    src ={`http://localhost:5000/pictures/${catIcon.catImg}`} id="catImg"/> 
+                                    src ={BACKEND_URL+`/pictures/${catIcon.catImg}`} id="catImg"/> 
                                 <h6 className="text-center">{catIcon.category}</h6>
                             </div>
                         </Col>
@@ -175,7 +176,7 @@ export default class Category extends Component {
                         this.state.foods.map((food => 
                             <div className="Col-md-4" id="product">
                                 <figure className="card card-product p-2">
-                                    <img alt="foodPic" width='250' height='150' src={`http://localhost:5000/pictures/${food.foodimage}`}/>
+                                    <img alt="foodPic" width='250' height='150' src={BACKEND_URL+`/pictures/${food.foodimage}`}/>
                                     <figcaption class="info-wrap">
                                         <legend className="title">{food.foodname}</legend>
                                         <h6 className="title">Rs. {food.price}</h6>

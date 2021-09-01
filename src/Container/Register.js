@@ -1,22 +1,25 @@
 import { Component } from "react";
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {BACKEND_URL} from '.././config';
 
 
 class Register extends Component{
     state={
         fullname:"",
         password:"",
-        email:""
+        email:"",
+        contact:""
        
     }
     sendUserData = ( ) =>{
         const data={
             fullname:this.state.fullname,
             email:this.state.email,
+            contact:this.state.contact,
             password:this.state.password,
         }
-        axios.post("http://localhost:5000/users/signup",data).then(
+        axios.post(BACKEND_URL+"/users/signup",data).then(
            alert("User has been Registered!!")
         ).catch(error=>{console.log(error);}
         )
@@ -55,6 +58,9 @@ class Register extends Component{
            </div>
 
            <div className="form-group"><input id="Email" type="Text" className="form-control" placeholder="Email" value={this.state.email} onChange={(event)=>{this.setState({email:event.target.value})}}/>
+           </div>
+
+           <div className="form-group"><input id="Contact" type="Text" className="form-control" placeholder="Contact" value={this.state.contact} onChange={(event)=>{this.setState({contact:event.target.value})}}/>
            </div>
 
           

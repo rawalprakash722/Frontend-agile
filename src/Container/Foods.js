@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, FormGroup, Label, Row, Input, Modal, ModalHeader, ModalBody, ModalFooter, Form, Col } from 'reactstrap'
 import axios from 'axios'
 import ListFoods from './ListFoods'
-
+import {BACKEND_URL} from '.././config';
 import { MdAdd } from "react-icons/md";
 import NumberFormat from "react-number-format";
 
@@ -37,7 +37,7 @@ export default class AddFood extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/resturants',this.state.config)
+        axios.get(BACKEND_URL+'/resturants',this.state.config)
         .then((response)=>{
           const data = response.data;
           this.setState({
@@ -46,7 +46,7 @@ export default class AddFood extends Component {
             });        
         }).catch(error => console.log(error.response));
 
-        axios.get('http://localhost:5000/foodCat', this.state.config)
+        axios.get(BACKEND_URL+'/foodCat', this.state.config)
         .then((response)=>{
             const data = response.data;
             this.setState({
@@ -74,12 +74,12 @@ export default class AddFood extends Component {
         e.preventDefault();
         const data = new FormData()
         data.append('imageFile', this.state.selectedFile)
-        axios.post('http://localhost:5000/upload', data, this.state.config)
+        axios.post(BACKEND_URL+'/upload', data, this.state.config)
             .then((response) => {
                 this.setState({
                     catImg: response.data.filename
                 })
-            axios.post('http://localhost:5000/foodCat',
+            axios.post(BACKEND_URL+'/foodCat',
             {
               category:this.state.category,
               catImg:this.state.catImg
@@ -95,12 +95,12 @@ export default class AddFood extends Component {
     addFood = () => {
         const data = new FormData()
         data.append('imageFile', this.state.selectedFile)
-        axios.post('http://localhost:5000/upload', data, this.state.config)
+        axios.post(BACKEND_URL+'/upload', data, this.state.config)
             .then((response) => {
                 this.setState({
                     foodimage: response.data.filename
                 })
-                axios.post('http://localhost:5000/foods', 
+                axios.post(BACKEND_URL+'/foods', 
                 {
                     foodname:this.state.foodname,
                     price:this.state.price,

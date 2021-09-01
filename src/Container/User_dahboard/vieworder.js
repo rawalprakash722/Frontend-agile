@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Axios from 'axios';
-
+import {BACKEND_URL} from '../../config';
 
 export default class ViewOrder extends Component {
     constructor(props) {
@@ -26,7 +26,7 @@ export default class ViewOrder extends Component {
     }
     
     componentDidMount() {
-      Axios.get('http://localhost:5000/order',this.state.config)
+      Axios.get(BACKEND_URL+'/order',this.state.config)
         .then((response)=>{
           const data = response.data;
           this.setState({
@@ -47,7 +47,7 @@ export default class ViewOrder extends Component {
         modal: !this.state.modal,
         orderDate:orderId
       })
-      Axios.get(`http://localhost:5000/order/${orderId}`, this.state.config)
+      Axios.get(BACKEND_URL+`/order/${orderId}`, this.state.config)
         .then((response)=>{
           const data = response.data;
           this.setState({viewOrder:data});

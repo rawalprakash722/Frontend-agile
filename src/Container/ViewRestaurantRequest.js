@@ -1,6 +1,7 @@
 import React,{ Component } from "react";
 import {Route, Link} from 'react-router-dom';
 import axios from 'axios';
+import {BACKEND_URL} from '.././config';
 
 
 class ViewRestaurantRequest extends Component{
@@ -11,7 +12,7 @@ class ViewRestaurantRequest extends Component{
         }
     }
     componentDidMount(){
-        axios.get("http://localhost:5000/users/user/show",this.state.config)
+        axios.get(BACKEND_URL+"/users/user/show",this.state.config)
         .then((response)=>{
             console.log(response)
             this.setState({
@@ -24,7 +25,7 @@ class ViewRestaurantRequest extends Component{
     }
     
     deleteUser = (uid) =>{
-        axios.delete('http://localhost:5000/users/user/deletee/' + uid,  this.state.config)
+        axios.delete(BACKEND_URL+'/users/user/deletee/' + uid,  this.state.config)
     .then((response)=>{
         console.log(response)
         alert(response.data.message)
@@ -46,7 +47,7 @@ class ViewRestaurantRequest extends Component{
 
                             
                             
-                        <div className="col-lg-6" id="prd">
+                        <div className="col-lg-12" id="prd">
 
 
                             <div id="marg"></div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter,Input } from 'reactstrap';
 import Axios from 'axios'
+import {BACKEND_URL} from '.././config';
 
 
 export default class ListFoods extends Component {
@@ -32,7 +33,7 @@ export default class ListFoods extends Component {
   }
              
   componentDidMount() {
-    Axios.get('http://localhost:5000/resturants',this.state.config)
+    Axios.get(BACKEND_URL+'/resturants',this.state.config)
     .then((response)=>{
       const data = response.data;
       this.setState({popular:  data});
@@ -55,7 +56,7 @@ export default class ListFoods extends Component {
   }
 
   deleteresturant(resId){
-    Axios.delete(`http://localhost:5000/resturants/${resId}`, this.state.config)
+    Axios.delete(BACKEND_URL+`/resturants/${resId}`, this.state.config)
     .then((response) => {
       console.log("delete trying")
       alert("Deleted")
@@ -66,12 +67,12 @@ export default class ListFoods extends Component {
     this.setState({
       modal: !this.state.modal
     });
-    Axios.get(`http://localhost:5000/resturants/${resId}`,this.state.config)
+    Axios.get(BACKEND_URL+`/resturants/${resId}`,this.state.config)
     .then((response)=>{
       const data = response.data;
       this.setState({
         resturant: data,
-        imgPreview:`http://localhost:5000/pictures/${data.res_image}`
+        imgPreview:BACKEND_URL+`/pictures/${data.res_image}`
       });         
     }).catch(error => console.log(error.response)); 
   }
@@ -85,13 +86,13 @@ export default class ListFoods extends Component {
   updateRestaurant = (resId) => {
     const data = new FormData()
     data.append('imageFile', this.state.selectedFile)
-    Axios.post('http://localhost:5000/upload', data, this.state.config)
+    Axios.post(BACKEND_URL+'/upload', data, this.state.config)
     .then((response) => {
       this.setState({
         res_image: response.data.filename
       })
       console.log(response)
-      Axios.put(`http://localhost:5000/resturants/${resId}`, 
+      Axios.put(BACKEND_URL+`/resturants/${resId}`, 
       { 
         resturant_name:this.state.resturant.resturant_name,
         resturant_address: this.state.resturant.resturant_address,
@@ -124,7 +125,7 @@ export default class ListFoods extends Component {
                   <tr key={pop._id}>
                     <td>{pop.resturant_name}</td>
                     <td>{pop.resturant_address}</td>
-                          <td><img alt="img" src={`http://localhost:5000/pictures/${pop.res_image}`} style={{height: "50px",width:"50px"}}/></td>
+                          <td><img alt="img" src={BACKEND_URL+`/pictures/${pop.res_image}`} style={{height: "50px",width:"50px"}}/></td>
                     <td><a className="btn btn-primary" onClick={() => this.handleEdit(pop._id)}>
                                         Update</a></td>
                     <td><a onClick={() => this.deleteresturant(pop._id)} className="btn btn-danger" href="">Delete</a></td>

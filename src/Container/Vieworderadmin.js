@@ -2,6 +2,7 @@ import React,{ Component } from "react";
 import {Route, Link} from 'react-router-dom';
 import { Table} from 'reactstrap';
 import axios from 'axios';
+import {BACKEND_URL} from '.././config';
 
 
 class Vieworderadmin extends Component{
@@ -21,7 +22,7 @@ class Vieworderadmin extends Component{
     }
 
     componentDidMount(){
-        axios.get("http://localhost:5000/orders/show/admin",this.state.config)
+        axios.get(BACKEND_URL+"/orders/show/admin",this.state.config)
         .then((response)=>{
             const data = response.data;
             this.setState({viewOrder:data});
@@ -52,6 +53,7 @@ class Vieworderadmin extends Component{
                       <th><h5>Total Price</h5></th>
                       <th><h5>Email</h5></th>
                       <th><h5>Full Name</h5></th>
+                      <th><h5>Contact</h5></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -67,6 +69,7 @@ class Vieworderadmin extends Component{
                               <td><h6>{listItem.food.price*listItem.quanity}</h6></td>
                               <td><h6>{listItem.user.email}</h6></td>
                               <td><h6>{listItem.user.fullname}</h6></td>
+                              <td><h6>{listItem.user.contact}</h6></td>
                             </tr>
                           )
                         })

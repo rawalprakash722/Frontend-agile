@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter,Input } from 'reactstrap';
 import Axios from 'axios'
-
+import {BACKEND_URL} from '.././config';
 
 export default class ListFoods extends Component {
     constructor(props) {
@@ -29,7 +29,7 @@ export default class ListFoods extends Component {
     } 
              
     componentDidMount() {
-      Axios.get('http://localhost:5000/foods',this.config)
+      Axios.get(BACKEND_URL+'/foods',this.config)
         .then((response)=>{
           const data = response.data;
           this.setState({popular:  data});
@@ -37,7 +37,7 @@ export default class ListFoods extends Component {
           console.log(this.state.popular);
         }).catch(error => console.log(error.response));
 
-      Axios.get('http://localhost:5000/resturants',this.state.config)
+      Axios.get(BACKEND_URL+'/resturants',this.state.config)
       .then((response)=>{
         const data = response.data;
         this.setState({
@@ -46,7 +46,7 @@ export default class ListFoods extends Component {
           });        
       }).catch(error => console.log(error.response));
 
-      Axios.get('http://localhost:5000/foodCat', this.state.config)
+      Axios.get(BACKEND_URL+'/foodCat', this.state.config)
         .then((response)=>{
             const data = response.data;
             this.setState({
@@ -73,7 +73,7 @@ export default class ListFoods extends Component {
       e.preventDefault();
       const data = new FormData()
       data.append('imageFile', this.state.selectedFile)
-      Axios.post('http://localhost:5000/upload', data, this.state.config)
+      Axios.post(BACKEND_URL+'/upload', data, this.state.config)
         .then((response) => {
           this.setState({
             foodname: this.state.foodname,
@@ -91,7 +91,7 @@ export default class ListFoods extends Component {
     }
 
     deletefood(foodId){
-      Axios.delete(`http://localhost:5000/foods/${foodId}`, this.state.config)
+      Axios.delete(BACKEND_URL+`/foods/${foodId}`, this.state.config)
       .then((response) => {
         console.log(response);
         window.location.reload()   
@@ -103,14 +103,14 @@ export default class ListFoods extends Component {
       this.setState({
         modal: !this.state.modal
       });
-      Axios.get(`http://localhost:5000/foods/${foodId}`,this.state.config)
+      Axios.get(BACKEND_URL+`/foods/${foodId}`,this.state.config)
       .then((response)=>{
         const data = response.data;
           this.setState({
             food: data,
             resSelect:data.restaurant._id,
             catSelect:data.category._id,
-            imgpreview:`http://localhost:5000/pictures/${data.foodimage}`
+            imgpreview:BACKEND_URL+`/pictures/${data.foodimage}`
           });    
         console.log("data fecth"+data);
         })
@@ -126,12 +126,12 @@ export default class ListFoods extends Component {
     updateFood = (foodId) => {
       const data = new FormData()
       data.append('imageFile', this.state.selectedFile)
-      Axios.post('http://localhost:5000/upload', data, this.state.config)
+      Axios.post(BACKEND_URL+'/upload', data, this.state.config)
         .then((response) => {
           this.setState({
             foodimage: response.data.filename
           })
-          Axios.put(`http://localhost:5000/foods/${foodId}`, 
+          Axios.put(BACKEND_URL+`/foods/${foodId}`, 
             { 
               foodname: this.state.food.foodname, 
               price: this.state.food.price,
@@ -175,7 +175,7 @@ export default class ListFoods extends Component {
                   <td>{pop.foodname}</td>
                   <td>{pop.price}</td>
                   <td>
-                    <img alt="foodPic" src={`http://localhost:5000/pictures/${pop.foodimage}`} style={{height: "50px",width:"50px"}}/>
+                    <img alt="foodPic" src={BACKEND_URL+`/pictures/${pop.foodimage}`} style={{height: "50px",width:"50px"}}/>
                   </td>
                   <td>
                     <a className="btn btn-primary" onClick={() => this.handleEdit(pop._id)}>Update</a>
